@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Essential Viewport Tag for Mobile Scaling Fix -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sri Lanka E-Passport Process Tracker</title>
     <style>
         body {
@@ -21,9 +23,20 @@
             border: 1px solid #334155;
             border-radius: 12px;
             padding: 2rem;
-            width: 440px;
+            /* Changed from fixed width to responsive max-width */
+            width: 100%;
+            max-width: 440px;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
             box-sizing: border-box;
+        }
+        /* Mobile padding adjustments for smaller screens */
+        @media (max-width: 480px) {
+            .card {
+                padding: 1.25rem;
+            }
+            .days {
+                font-size: 2.75rem !important;
+            }
         }
         .header-section {
             text-align: center;
@@ -112,6 +125,7 @@
             margin-right: 0.75rem;
             font-size: 1rem;
             line-height: 1.2;
+            flex-shrink: 0; /* Prevents emoji distortion on thin displays */
         }
         .stage-details {
             display: flex;
@@ -128,6 +142,7 @@
             font-size: 0.8rem;
             color: #94a3b8;
             margin-top: 0.15rem;
+            line-height: 1.3;
         }
     </style>
 </head>
@@ -153,8 +168,8 @@
     </div>
     
     <div class="date-label">
-        <span>Started: Sept 18, 2026</span>
-        <span>Bid Close: Nov 2, 2026</span>
+        <span>Started: Sept 18</span>
+        <span>Bid Close: Nov 2</span>
     </div>
 
     <!-- Stages Roadmap Architecture -->
@@ -189,6 +204,7 @@
 
 <script>
     function calculateCountdown() {
+        // Target Date: 2 November 2026. Start Date: 18 September 2026.
         var targetTime = new Date(2026, 10, 2).getTime();
         var startTime = new Date(2026, 8, 18).getTime();
         var nowTime = new Date().getTime();
