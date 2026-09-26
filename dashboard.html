@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sri Lanka E-Passport Countdown</title>
+    <style>
+        body {
+            font-family: -apple-system, system-ui, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            margin: 0 0 0.5rem 0;
+            color: #94a3b8;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+        }
+        h1 {
+            color: #f59e0b;
+            margin: 0 0 1.5rem 0;
+            font-size: 1.5rem;
+        }
+        .days {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        .progress-bg {
+            background-color: #334155;
+            border-radius: 9999px;
+            height: 12px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background-color: #f59e0b;
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease-out;
+        }
+        .date-label {
+            display: flex;
+            justify-content: space-between;
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>STAGE 1: INTERNATIONAL BIDDING</h2>
+    <h1>🇱🇰 Sri Lanka E-Passport</h1>
+    
+    <div class="days" id="days-box">-- Days Left</div>
+    
+    <div class="progress-bg">
+        <div class="progress-fill" id="bar-box"></div>
+    </div>
+    
+    <div class="date-label">
+        <span>Start: Sept 18</span>
+        <span>Deadline: Nov 2</span>
+    </div>
+</div>
+
+<script>
+    function calculateCountdown() {
+        // Target: November 2, 2026. Updated Start: September 18, 2026.
+        // JS Months are 0-indexed (Sept = 8, Nov = 10)
+        var targetTime = new Date(2026, 10, 2).getTime();
+        var startTime = new Date(2026, 8, 18).getTime();
+        var nowTime = new Date().getTime();
+
+        var diff = targetTime - nowTime;
+        var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+        if (days < 0) days = 0;
+
+        var total = targetTime - startTime;
+        var elapsed = nowTime - startTime;
+        var percent = (elapsed / total) * 100;
+        
+        if (percent > 100) percent = 100;
+        if (percent < 0) percent = 0;
+
+        document.getElementById("days-box").innerText = days + " Days Left";
+        document.getElementById("bar-box").style.width = percent + "%";
+    }
+
+    // Run immediately
+    calculateCountdown();
+</script>
+
+</body>
+</html>
+
