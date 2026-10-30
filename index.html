@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Essential Viewport Tag for Mobile Scaling Fix -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sri Lanka E-Passport Process Tracker</title>
     <style>
         body {
-            font-family: -apple-system, system-ui, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: #0f172a;
             color: #f8fafc;
             display: flex;
@@ -23,13 +22,11 @@
             border: 1px solid #334155;
             border-radius: 12px;
             padding: 2rem;
-            /* Changed from fixed width to responsive max-width */
             width: 100%;
             max-width: 440px;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
             box-sizing: border-box;
         }
-        /* Mobile padding adjustments for smaller screens */
         @media (max-width: 480px) {
             .card {
                 padding: 1.25rem;
@@ -62,13 +59,24 @@
             font-size: 0.85rem;
             color: #cbd5e1;
             line-height: 1.4;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
         .intro-box p {
             margin: 0 0 0.75rem 0;
         }
         .intro-box p:last-child {
             margin: 0;
+        }
+        .badge {
+            display: inline-block;
+            background-color: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 4px;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
         }
         .days {
             font-size: 3.5rem;
@@ -94,9 +102,21 @@
         .date-label {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             color: #64748b;
             font-size: 0.8rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .extended-tag {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 3px;
+            padding: 0.1rem 0.35rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-left: 0.35rem;
+            text-transform: uppercase;
         }
         .roadmap {
             border-top: 1px solid #334155;
@@ -125,7 +145,7 @@
             margin-right: 0.75rem;
             font-size: 1rem;
             line-height: 1.2;
-            flex-shrink: 0; /* Prevents emoji distortion on thin displays */
+            flex-shrink: 0;
         }
         .stage-details {
             display: flex;
@@ -154,13 +174,13 @@
         <h1>🇱🇰 Sri Lanka E-Passport</h1>
     </div>
 
-    <!-- Enhanced Intro Regarding Renewed Drive Importance -->
     <div class="intro-box">
-        <p><strong>The Renewed Drive:</strong> Sri Lanka has launched an accelerated drive to deploy international-standard biometric e-passports, moving away from legacy paper documents.</p>
-        <p><strong>Why It's Critical:</strong> Securing these upgrades is vital to comply with global ICAO security frameworks, combat document forgery, and modernise border controls. Crucially, it upgrades the power of the Sri Lankan passport—enabling seamless airport clearance, unlocking automated e-gates worldwide, and easing travel for the diaspora and global workforce.</p>
+        <span class="badge">Ref: DIE/PRO/PKI/2026</span>
+        <p><strong>Re-Invited Procurement:</strong> Following the termination of previous tender rounds, the Department of Immigration & Emigration (DIE) re-opened international bidding for 3 million biometric e-passports paired with local PKI infrastructure.</p>
+        <p><strong>Mandatory Criteria:</strong> Global partners must form joint ventures with a Sri Lankan entity having >5 years of registered local representation to ensure long-term system maintenance and compliance with the newly introduced Biometric Immigration Framework.</p>
     </div>
     
-    <h2>Current: Stage 1 Countdown</h2>
+    <h2>Current: Stage 1 Bid Window</h2>
     <div class="days" id="days-box">-- Days Left</div>
     
     <div class="progress-bg">
@@ -168,8 +188,8 @@
     </div>
     
     <div class="date-label">
-        <span>Started: Sept 18</span>
-        <span>Bid Close: Nov 2</span>
+        <span>Opened: Sept 18, 2026</span>
+        <span>Bid Close: Nov 16, 2026 <span class="extended-tag">Extended</span></span>
     </div>
 
     <!-- Stages Roadmap Architecture -->
@@ -179,24 +199,24 @@
         <div class="stage active">
             <span class="status-icon">⏳</span>
             <div class="stage-details">
-                <span class="stage-title">Stage 1 - Open Bids</span>
-                <span class="stage-desc">Competitive procurement window open to international infrastructure partners.</span>
+                <span class="stage-title">Stage 1 - Extended Open Bids</span>
+                <span class="stage-desc">Competitive bidding window extended to Nov 16 for PKI setup, system integration, and ~3M personalization booklets.</span>
             </div>
         </div>
 
         <div class="stage inactive">
             <span class="status-icon">🔒</span>
             <div class="stage-details">
-                <span class="stage-title">Stage 2 - Selecting Bidder & Awarding Tender</span>
-                <span class="stage-desc">Technical vetting matrices applied by immigration authorities to select the provider.</span>
+                <span class="stage-title">Stage 2 - Evaluation & Vendor Selection</span>
+                <span class="stage-desc">Technical vetting matrices, local JV audits, and Cabinet award approval.</span>
             </div>
         </div>
 
         <div class="stage inactive">
             <span class="status-icon">🔒</span>
             <div class="stage-details">
-                <span class="stage-title">Stage 3 - Deploying PKI & Issuing E-Passports</span>
-                <span class="stage-desc">Setting up Public Key Infrastructure security modules and kicking off physical card printing.</span>
+                <span class="stage-title">Stage 3 - PKI Deployment & E-Gate Launch</span>
+                <span class="stage-desc">ICAO Public Key Directory (PKD) integration and dual-stock (MRP + e-Passport) printing switch.</span>
             </div>
         </div>
     </div>
@@ -204,9 +224,9 @@
 
 <script>
     function calculateCountdown() {
-        // Target Date: 2 November 2026. Start Date: 18 September 2026.
-        var targetTime = new Date(2026, 10, 2).getTime();
-        var startTime = new Date(2026, 8, 18).getTime();
+        // Target Date: 16 November 2026. Start Date: 18 September 2026.
+        var targetTime = new Date(2026, 10, 16).getTime(); // Month 10 = November in JS
+        var startTime = new Date(2026, 8, 18).getTime();  // Month 8 = September in JS
         var nowTime = new Date().getTime();
 
         var diff = targetTime - nowTime;
@@ -221,7 +241,7 @@
         if (percent < 0) percent = 0;
 
         document.getElementById("days-box").innerText = days + " Days Left";
-        document.getElementById("bar-box").style.width = percent + "%";
+        document.getElementById("bar-box").style.width = percent.toFixed(1) + "%";
     }
 
     calculateCountdown();
