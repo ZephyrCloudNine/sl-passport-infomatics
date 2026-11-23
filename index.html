@@ -31,8 +31,8 @@
             .card {
                 padding: 1.25rem;
             }
-            .days {
-                font-size: 2.75rem !important;
+            .status-text {
+                font-size: 2.25rem !important;
             }
         }
         .header-section {
@@ -78,26 +78,21 @@
             font-weight: 600;
             margin-bottom: 0.75rem;
         }
-        .days {
-            font-size: 3.5rem;
-            font-weight: 800;
+        .status-box-wrapper {
             text-align: center;
-            margin-bottom: 1rem;
-            color: #f8fafc;
+            margin-bottom: 1.5rem;
+            padding: 1rem 0 0.5rem 0;
         }
-        .progress-bg {
-            background-color: #334155;
-            border-radius: 9999px;
-            height: 10px;
-            width: 100%;
-            overflow: hidden;
+        .status-text {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: #f59e0b;
+            line-height: 1.1;
             margin-bottom: 0.5rem;
         }
-        .progress-fill {
-            background-color: #f59e0b;
-            height: 100%;
-            width: 0%;
-            transition: width 0.5s ease-out;
+        .status-sub {
+            font-size: 0.85rem;
+            color: #94a3b8;
         }
         .date-label {
             display: flex;
@@ -106,11 +101,13 @@
             color: #64748b;
             font-size: 0.8rem;
             margin-bottom: 1.5rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed #334155;
         }
-        .extended-tag {
-            background-color: rgba(239, 68, 68, 0.15);
-            color: #ef4444;
-            border: 1px solid rgba(239, 68, 68, 0.3);
+        .est-tag {
+            background-color: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.3);
             border-radius: 3px;
             padding: 0.1rem 0.35rem;
             font-size: 0.7rem;
@@ -136,6 +133,9 @@
             font-size: 0.9rem;
             padding: 0.5rem;
             border-radius: 6px;
+        }
+        .stage.completed {
+            opacity: 0.85;
         }
         .stage.active {
             background-color: rgba(245, 158, 11, 0.06);
@@ -176,76 +176,50 @@
 
     <div class="intro-box">
         <span class="badge">Ref: DIE/PRO/PKI/2026</span>
-        <p><strong>Re-Invited Procurement:</strong> Following the termination of previous tender rounds, the Department of Immigration & Emigration (DIE) re-opened international bidding for 3 million biometric e-passports paired with local PKI infrastructure.</p>
-        <p><strong>Mandatory Criteria:</strong> Global partners must form joint ventures with a Sri Lankan entity having >5 years of registered local representation to ensure long-term system maintenance and compliance with the newly introduced Biometric Immigration Framework.</p>
+        <p><strong>Re-Invited Procurement:</strong> Following previous tender rounds, the Department of Immigration &amp; Emigration (DIE) opened international bidding for national e-passport PKI infrastructure, ICAO-PKD integration, and personalization services.</p>
+        <p><strong>Mandatory Criteria:</strong> Global partners must form joint ventures with a Sri Lankan entity having &gt;5 years of registered local representation to ensure long-term system maintenance and compliance with the Biometric Immigration Framework.</p>
     </div>
     
-    <h2>Current: Stage 1 Bid Window</h2>
-    <div class="days" id="days-box">-- Days Left</div>
-    
-    <div class="progress-bg">
-        <div class="progress-fill" id="bar-box"></div>
+    <h2>Current: Stage 2 Bid Evaluation</h2>
+    <div class="status-box-wrapper">
+        <div class="status-text">In Progress</div>
+        <div class="status-sub">Technical &amp; Commercial Review</div>
     </div>
     
     <div class="date-label">
-        <span>Opened: Sept 18, 2026</span>
-        <span>Bid Close: Nov 16, 2026 <span class="extended-tag">Extended</span></span>
+        <span>Bids Closed: Nov 23, 2026</span>
+        <span>Timeline: ~30 Days <span class="est-tag">Est. Window</span></span>
     </div>
 
     <!-- Stages Roadmap Architecture -->
     <div class="roadmap">
         <div class="roadmap-title">OFFICIAL ROLLOUT STAGES</div>
         
+        <div class="stage completed">
+            <span class="status-icon">✅</span>
+            <div class="stage-details">
+                <span class="stage-title">Stage 1 - Bidding Window (Closed)</span>
+                <span class="stage-desc">Final submission &amp; bid opening at 2:00 p.m. on Nov 23, 2026.</span>
+            </div>
+        </div>
+
         <div class="stage active">
             <span class="status-icon">⏳</span>
             <div class="stage-details">
-                <span class="stage-title">Stage 1 - Extended Open Bids</span>
-                <span class="stage-desc">Competitive bidding window extended to Nov 16 for PKI setup, system integration, and ~3M personalization booklets.</span>
+                <span class="stage-title">Stage 2 - Evaluation &amp; Vendor Selection</span>
+                <span class="stage-desc">Estimated ~30-day window for technical vetting, local JV audits, and High Level Procurement Committee / Cabinet approval.</span>
             </div>
         </div>
 
         <div class="stage inactive">
             <span class="status-icon">🔒</span>
             <div class="stage-details">
-                <span class="stage-title">Stage 2 - Evaluation & Vendor Selection</span>
-                <span class="stage-desc">Technical vetting matrices, local JV audits, and Cabinet award approval.</span>
-            </div>
-        </div>
-
-        <div class="stage inactive">
-            <span class="status-icon">🔒</span>
-            <div class="stage-details">
-                <span class="stage-title">Stage 3 - PKI Deployment & E-Gate Launch</span>
-                <span class="stage-desc">ICAO Public Key Directory (PKD) integration and dual-stock (MRP + e-Passport) printing switch.</span>
+                <span class="stage-title">Stage 3 - PKI Deployment &amp; E-Gate Launch</span>
+                <span class="stage-desc">ICAO Public Key Directory (PKD) integration and personalization rollout.</span>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    function calculateCountdown() {
-        // Target Date: 16 November 2026. Start Date: 18 September 2026.
-        var targetTime = new Date(2026, 10, 16).getTime(); // Month 10 = November in JS
-        var startTime = new Date(2026, 8, 18).getTime();  // Month 8 = September in JS
-        var nowTime = new Date().getTime();
-
-        var diff = targetTime - nowTime;
-        var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-        if (days < 0) days = 0;
-
-        var total = targetTime - startTime;
-        var elapsed = nowTime - startTime;
-        var percent = (elapsed / total) * 100;
-        
-        if (percent > 100) percent = 100;
-        if (percent < 0) percent = 0;
-
-        document.getElementById("days-box").innerText = days + " Days Left";
-        document.getElementById("bar-box").style.width = percent.toFixed(1) + "%";
-    }
-
-    calculateCountdown();
-</script>
 
 </body>
 </html>
