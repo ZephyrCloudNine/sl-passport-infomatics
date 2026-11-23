@@ -176,18 +176,18 @@
 
     <div class="intro-box">
         <span class="badge">Ref: DIE/PRO/PKI/2026</span>
-        <p><strong>Re-Invited Procurement:</strong> Following previous tender rounds, the Department of Immigration &amp; Emigration (DIE) opened international bidding for national e-passport PKI infrastructure, ICAO-PKD integration, and personalization services.</p>
-        <p><strong>Mandatory Criteria:</strong> Global partners must form joint ventures with a Sri Lankan entity having &gt;5 years of registered local representation to ensure long-term system maintenance and compliance with the Biometric Immigration Framework.</p>
+        <p><strong>Re-Invited Procurement:</strong> International bidding for national e-passport PKI infrastructure, ICAO-PKD integration, and personalization services.</p>
+        <p><strong>Mandatory Criteria:</strong> Joint venture with a Sri Lankan entity having &gt;5 years of registered local representation for system maintenance and biometric compliance.</p>
     </div>
     
-    <h2>Current: Stage 2 Bid Evaluation</h2>
+    <h2 id="current-stage-title">Current: Stage 2 Bid Evaluation</h2>
     <div class="status-box-wrapper">
-        <div class="status-text">In Progress</div>
-        <div class="status-sub">Technical &amp; Commercial Review</div>
+        <div class="status-text" id="status-main">In Progress</div>
+        <div class="status-sub" id="status-sub">Technical &amp; Commercial Review</div>
     </div>
     
     <div class="date-label">
-        <span>Bids Closed: Nov 23, 2026</span>
+        <span>Bids Closed: Nov 23, 2026 (2 PM)</span>
         <span>Timeline: ~30 Days <span class="est-tag">Est. Window</span></span>
     </div>
 
@@ -195,16 +195,16 @@
     <div class="roadmap">
         <div class="roadmap-title">OFFICIAL ROLLOUT STAGES</div>
         
-        <div class="stage completed">
-            <span class="status-icon">✅</span>
+        <div class="stage completed" id="stage1-box">
+            <span class="status-icon" id="stage1-icon">✅</span>
             <div class="stage-details">
                 <span class="stage-title">Stage 1 - Bidding Window (Closed)</span>
                 <span class="stage-desc">Final submission &amp; bid opening at 2:00 p.m. on Nov 23, 2026.</span>
             </div>
         </div>
 
-        <div class="stage active">
-            <span class="status-icon">⏳</span>
+        <div class="stage active" id="stage2-box">
+            <span class="status-icon" id="stage2-icon">⏳</span>
             <div class="stage-details">
                 <span class="stage-title">Stage 2 - Evaluation &amp; Vendor Selection</span>
                 <span class="stage-desc">Estimated ~30-day window for technical vetting, local JV audits, and High Level Procurement Committee / Cabinet approval.</span>
@@ -220,6 +220,30 @@
         </div>
     </div>
 </div>
+
+<script>
+    function updateTrackerState() {
+        // Cutoff: Nov 23, 2026 at 14:00 IST/SLT (UTC+5:30 -> 08:30 UTC)
+        var cutoffTime = Date.UTC(2026, 10, 23, 8, 30, 0);
+        var nowTime = new Date().getTime();
+
+        if (nowTime >= cutoffTime) {
+            document.getElementById("current-stage-title").innerText = "Current: Stage 2 Bid Evaluation";
+            document.getElementById("status-main").innerText = "In Progress";
+            document.getElementById("status-sub").innerText = "Technical & Commercial Review";
+
+            var s1 = document.getElementById("stage1-box");
+            s1.className = "stage completed";
+            document.getElementById("stage1-icon").innerText = "✅";
+
+            var s2 = document.getElementById("stage2-box");
+            s2.className = "stage active";
+            document.getElementById("stage2-icon").innerText = "⏳";
+        }
+    }
+
+    updateTrackerState();
+</script>
 
 </body>
 </html>
